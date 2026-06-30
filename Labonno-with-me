@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Labonno ❤️ Coffee Date</title>
+</head>
+<body style="text-align:center; font-family:Arial; padding-top:50px;">
+
+  <h1>Hi Labonno ❤️</h1>
+  <p>Will you go on a coffee date with me?</p>
+
+  <input type="date" id="date"><br><br>
+  <input type="time" id="time"><br><br>
+
+  <select id="restaurant">
+    <option>North End</option>
+    <option>Star Coffee</option>
+    <option>Cafe Rio</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="submitData()">Confirm ❤️</button>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx5jLhBgB3k-8Y7J-rcUP8Woz-BiBpf7U1PwAT_veecDV2zLbjvISZBQJVs1sycqC2c/exec";
+
+    function submitData() {
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify({
+          name: "Labonno",
+          response: "Yes",
+          date: document.getElementById("date").value,
+          time: document.getElementById("time").value,
+          restaurant: document.getElementById("restaurant").value
+        })
+      })
+      .then(() => {
+        alert("Saved ❤️ See you on coffee date!");
+      });
+    }
+  </script>
+
+</body>
+</html>
